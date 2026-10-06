@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050507">
+<title>Unstop Igniters Club — The Legacy</title>
+<style>
+:root{--bg:#050507;--fg:#f5f5f7;--muted:#9999a3;--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit}img{max-width:100%}::selection{background:#dce9ff;color:#050507}
+header{position:fixed;z-index:30;top:0;left:0;right:0;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.brand img{width:32px;height:26px;object-fit:contain}
+.nav{display:flex;gap:5px;border:1px solid var(--line);background:rgba(5,5,7,.68);backdrop-filter:blur(15px);padding:5px;border-radius:999px}
+.nav a{font-size:9px;letter-spacing:.13em;text-transform:uppercase;padding:8px 10px;border-radius:999px;color:#bdbdc5}
+.nav a:hover{background:#fff;color:#000}
+.hero{height:100svh;min-height:680px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 40%,rgba(96,135,194,.17),transparent 35%),#050507}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(transparent,#000 25%,#000 75%,transparent)}
+.hero-content{position:relative;padding:110px 20px 60px;max-width:1100px}
+.logo{width:120px;margin-bottom:25px;filter:drop-shadow(0 0 25px rgba(130,170,230,.2))}
+.kicker,.meta,.small{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#85858e}
+.hero h1{font-size:clamp(70px,15vw,210px);line-height:.78;letter-spacing:-.09em;margin:24px 0 32px}
+.hero h1 span{display:block}.hero h1 span:last-child{font-weight:300;color:#bfc0c8}
+.hero p{max-width:600px;margin:auto;color:#a3a3ac;line-height:1.7}
+.scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;color:#777}
+.scroll:after{content:"";display:block;height:48px;width:1px;background:linear-gradient(#fff,transparent);margin:10px auto 0}
+section{padding:140px 5vw}.chapter{max-width:1400px;margin:auto}
+.meta{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
+h2.title{font-size:clamp(55px,10vw,150px);line-height:.86;letter-spacing:-.08em;margin:40px 0 25px}
+.title em{font-style:normal;font-weight:300;color:#85858e}
+.lead{max-width:680px;color:#a2a2ab;line-height:1.8;font-size:clamp(16px,1.7vw,20px)}
+.full{margin:75px auto 0;max-width:1250px;overflow:hidden;background:#0b0b0f}
+.full img{width:100%;display:block;transition:transform 1s}.full:hover img{transform:scale(1.025)}
+.quote{font-size:clamp(32px,5vw,75px);line-height:1.02;letter-spacing:-.055em;margin:100px 0;max-width:1050px}
+.quote span{color:#666670}
+.masonry{columns:3 260px;column-gap:14px;margin-top:65px}figure{margin:0 0 14px;break-inside:avoid;overflow:hidden;background:#0b0b0f;cursor:pointer}
+.masonry img{width:100%;display:block;transition:transform .8s}.masonry figure:hover img{transform:scale(1.04)}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:65px}
+.person{position:relative}.person img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:.8s;filter:saturate(.88)}
+.person:hover img{transform:scale(1.03);filter:saturate(1)}.tag{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.62);padding:7px 8px;font-size:8px;letter-spacing:.18em}
+.stage{margin-top:80px;min-height:70svh;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(100,140,205,.15),transparent 45%)}
+.stage h3{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#85858e}.stage h4{font-size:clamp(65px,13vw,180px);line-height:.8;letter-spacing:-.09em;margin:25px 0}
+.stage p{max-width:550px;margin:auto;color:#9c9ca5;line-height:1.7}
+.team{display:grid;grid-template-columns:1.4fr .6fr;gap:12px;margin-top:70px}.team-main img,.team-member img{width:100%;height:100%;object-fit:cover;display:block}
+.team-main{overflow:hidden;background:#0b0b0f}.team-stack{display:grid;grid-template-columns:1fr 1fr;gap:12px}.team-member{overflow:hidden;background:#0b0b0f}
+.final{height:100svh;min-height:650px;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 45%,rgba(105,145,210,.14),transparent 42%)}
+.final h2{font-size:clamp(70px,14vw,190px);line-height:.78;letter-spacing:-.09em;margin:22px 0}.final h2 span{display:block;font-weight:300;color:#85858e}
+.replay{margin-top:35px;padding:14px 21px;border:0;border-radius:999px;background:#fff;color:#050507;font-weight:700;cursor:pointer}
+footer{padding:25px 5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#666;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.reveal{opacity:1;transform:none;transition:opacity .9s,transform .9s}.js .reveal{opacity:0;transform:translateY(30px)}.js .reveal.on{opacity:1;transform:none}
+#lightbox{display:none;position:fixed;z-index:100;inset:0;background:rgba(0,0,0,.95);place-items:center;padding:25px}
+#lightbox.open{display:grid}#lightbox img{max-width:94vw;max-height:90vh;object-fit:contain}.close{position:absolute;right:20px;top:18px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:#0d0d10;color:#fff}
+@media(max-width:850px){.nav{display:none}header{padding:14px 16px}section{padding:100px 20px}.people{grid-template-columns:1fr 1fr;gap:8px}.team{grid-template-columns:1fr}.team-stack{gap:8px}footer{display:block;line-height:2}}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<header><a class="brand" href="#top"><img src="assets/images/logo/igniters.png" alt="">Unstop Igniters</a><nav class="nav"><a href="#beginning">Beginning</a><a href="#moments">Moments</a><a href="#people">People</a><a href="#future">Second Gen</a><a href="#legacy">Legacy</a></nav></header>
+
+<main id="top">
+<section class="hero"><div class="grid"></div><div class="hero-content">
+<img class="logo" src="assets/images/logo/igniters.png" alt="Unstop Igniters Club">
+<div class="kicker">Unstop Igniters Club · Award Ceremony 2026</div>
+<h1><span>THE</span><span>LEGACY</span></h1>
+<p>Three months. One journey. A generation that started it — and another ready to carry it forward.</p>
+</div><div class="scroll">SCROLL TO BEGIN</div></section>
+
+<section id="beginning"><div class="chapter">
+<div class="meta"><span>Chapter 01</span><span>The Beginning</span></div>
+<h2 class="title reveal">WHERE<br><em>IT ALL STARTED.</em></h2>
+<p class="lead reveal">Every community has a first chapter. This is ours — the people, the first steps, and the energy that gave Unstop Igniters Club its beginning.</p>
+<div class="full reveal" data-lightbox><img src="assets/images/beginning/beginning-img-20260301-wa0041.jpg" alt="The beginning"></div>
+<div class="quote reveal">They didn't inherit a legacy.<br><span>They started one.</span></div>
+</div></section>
+
+<section id="moments"><div class="chapter">
+<div class="meta"><span>Chapter 02</span><span>The Moments</span></div>
+<h2 class="title reveal">THREE MONTHS.<br><em>COUNTLESS MOMENTS.</em></h2>
+<p class="lead reveal">Events, celebrations, activities, crowds, laughter and the moments between them. This is what the journey looked like when it was lived.</p>
+<div class="masonry"><figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-20260228-095923.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-20260415-102918.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-20260415-104559.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-img-20250802-wa0083.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-img-20250802-wa0103.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-img-20251025-wa0036.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-img-20251025-wa0088.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-img-20260718-wa0316.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-img-20260718-wa0345.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-img-20260814-wa0009.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-img-20260228-132921.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure>
+<figure class="photo reveal" data-lightbox><img src="assets/images/moments/moment-screenshot-20261006-192511-drive.jpg" alt="Unstop Igniters Club moment" loading="lazy"></figure></div>
+<div class="quote reveal">Some moments were planned.<br>Some happened by accident.<br><span>Every one became part of the story.</span></div>
+</div></section>
+
+<section id="people"><div class="chapter">
+<div class="meta"><span>Chapter 03</span><span>President's Council</span></div>
+<h2 class="title reveal">THE PEOPLE<br><em>BEHIND IT.</em></h2>
+<p class="lead reveal">Behind every successful event were people who showed up, took responsibility, solved problems and kept the journey moving. The President's Council — the squad behind the scenes.</p>
+<div class="people"><figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0017.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0018.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0020.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0022.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0033.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0052.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0074.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0075.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0076.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0077.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0082.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0085.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0106.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0107.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0113.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261004-wa0115.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261006-wa0002.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure>
+<figure class="person reveal" data-lightbox><img src="assets/images/council/council-img-20261006-wa0005.jpg" alt="President's Council volunteer" loading="lazy"><div class="tag">PRESIDENT'S COUNCIL</div></figure></div>
+<div class="quote reveal">This legacy belongs to<br><span>everyone who showed up.</span></div>
+</div></section>
+
+<section id="future"><div class="chapter">
+<div class="meta"><span>Chapter 04</span><span>The Next Chapter</span></div>
+<div class="stage reveal"><div><h3>A legacy doesn't end.</h3><h4>IT<br>EVOLVES.</h4><p>The next generation is the continuation — with new ideas, new energy and a story of its own waiting to be written.</p></div></div>
+<h2 class="title reveal">SECOND<br><em>GENERATION.</em></h2>
+<div class="team"><div class="team-main reveal" data-lightbox><img src="assets/images/second-gen/second-untitled-design-20260718-195656-0000.jpg" alt="Second Generation team"></div><div class="team-stack"><div class="team-member reveal" data-lightbox><img src="assets/images/second-gen/second-img-20250815-wa0006.jpg" alt="Second Generation member" loading="lazy"></div><div class="team-member reveal" data-lightbox><img src="assets/images/second-gen/second-img-20251213-wa0010-1.jpg" alt="Second Generation member" loading="lazy"></div><div class="team-member reveal" data-lightbox><img src="assets/images/second-gen/second-img-20261003-wa0010.jpg" alt="Second Generation member" loading="lazy"></div><div class="team-member reveal" data-lightbox><img src="assets/images/second-gen/second-img-20261004-wa0005.jpg" alt="Second Generation member" loading="lazy"></div><div class="team-member reveal" data-lightbox><img src="assets/images/second-gen/second-img-20261006-wa0022.jpg" alt="Second Generation member" loading="lazy"></div></div></div>
+<div class="quote reveal">The next chapter<br><span>begins now.</span></div>
+</div></section>
+
+<section id="legacy" class="final"><div class="reveal"><div class="small">Unstop Igniters Club</div><h2>ONE<br><span>LEGACY.</span></h2><div class="small">THE JOURNEY CONTINUES</div><button class="replay" onclick="window.scrollTo({top:0,behavior:'smooth'})">REPLAY THE JOURNEY ↻</button></div></section>
+</main>
+<footer><span>Unstop Igniters Club · JSREC</span><span>THE LEGACY · 2026</span></footer>
+<div id="lightbox"><button class="close" onclick="closeLightbox()">✕</button><img id="lb" alt=""></div>
+<script>
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+function openLightbox(src,alt){document.getElementById('lb').src=src;document.getElementById('lb').alt=alt||'';document.getElementById('lightbox').classList.add('open')}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}
+document.addEventListener('click',e=>{let t=e.target.closest('[data-lightbox]');if(t){let i=t.querySelector('img');if(i)openLightbox(i.src,i.alt)}});
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+</script>
+</body></html>
